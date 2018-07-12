@@ -2,6 +2,7 @@ import requests
 import json
 import urllib.request
 import re
+import shutil
 
 callback = re.compile('callback\((.*)\);')
 
@@ -33,3 +34,21 @@ def get_radio_info(radio_id):
     print("Count:", response['count'])
     print("Bangumi URL:",bangumi_urls['pc'])
     
+def get_mp3(radio_id):
+    # Make an API call
+    url = urllib.request.urlopen("http://www.onsen.ag/data/api/getMovieInfo/" + radio_id)
+    body = callback.search(url.read().decode('utf8')).group(1)
+    response = json.loads(body)
+
+    bangumi_urls = response['moviePath']
+    mp3_url = bangumi_urls['pc']
+
+    file_name = response['title'] + ' ' + response['update'] + ' ' + response['count'] + '回.mp3'
+
+    # Download mp3 file 
+    with urllib.request.urlopen(mp3_url) as mp3_response, open(file_name,'wb') as out_file:
+        data = mp3_response.read()
+        out_file.write(data)
+
+    print("Download Complete!")
+
