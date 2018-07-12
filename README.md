@@ -1,2 +1,2 @@
 # onseninfo
-Parse onsen.ag radio information
+A Python program parsing onsen.ag's radio program information
