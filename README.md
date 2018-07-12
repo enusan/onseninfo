@@ -8,11 +8,19 @@ main.py [OPTIONS] COMMAND [ARGS]
   --help
   
   Commands:
-  down
-  info
-  list
+    
+    down
+  
+    info
+  
+    list
+  
   
   Exmaple:
-  main.py list
-  main.py info "llss"
-  main.py down "llss"
+  
+    main.py list
+  
+    main.py info "llss"
+  
+    main.py down "llss"
+  
