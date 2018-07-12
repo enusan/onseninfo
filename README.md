@@ -1,7 +1,18 @@
 # onseninfo
-A Python program parsing onsen.ag's radio program information
+Useful Python program for onsen.ag
 
-# HOW TO:
-To get a list of radio id's, use get_key_list() method.
-To get a information of radio, use get_radio_info(radio_id) method. put the radio id from the list above (ex, get_radio_info('llss')
-To download a mp3 file, use get_mp3(radio_id) method.
+# Usage:
+main.py [OPTIONS] COMMAND [ARGS]
+
+  Options:
+  --help
+  
+  Commands:
+  down
+  info
+  list
+  
+  Exmaple:
+  main.py list
+  main.py info "llss"
+  main.py down "llss"
