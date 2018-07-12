@@ -7,7 +7,7 @@ import shutil
 callback = re.compile('callback\((.*)\);')
 
 # Get a radio id
-def get_key_list():
+def get_id_list():
     # Make an API call
     radio_list_url = 'http://www.onsen.ag/api/shownMovie/shownMovie.json'
     r = requests.get(radio_list_url)
@@ -17,7 +17,7 @@ def get_key_list():
     # Print the list
     print("\nList of radio name key for API:")
     for radio_dict in radio_dicts:
-        print('Key:', radio_dict)
+        print('id:', radio_dict)
 
 # Get a radio infomation
 def get_radio_info(radio_id):  
