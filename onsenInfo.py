@@ -45,10 +45,15 @@ def get_mp3(radio_id):
 
     file_name = response['title'] + ' ' + response['update'] + ' ' + response['count'] + '回.mp3'
 
-    # Download mp3 file 
-    with urllib.request.urlopen(mp3_url) as mp3_response, open(file_name,'wb') as out_file:
-        data = mp3_response.read()
-        out_file.write(data)
+    try:
+        f = open(file_name, 'r')
+    except FileNotFoundError as e:       
+        # Download mp3 file 
+        with urllib.request.urlopen(mp3_url) as mp3_response, open(file_name,'wb') as out_file:
+            data = mp3_response.read()
+            out_file.write(data)
+    else:
+        f.close()
 
     print("Download Complete!")
 
